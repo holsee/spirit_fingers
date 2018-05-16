@@ -8,7 +8,7 @@ defmodule SpiritFingers.MixProject do
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      compilers: [:rustler] ++ Mix.compilers,
+      compilers: [:rustler] ++ Mix.compilers(),
       rustler_crates: rustler_crates()
     ]
   end
@@ -28,10 +28,12 @@ defmodule SpiritFingers.MixProject do
   end
 
   defp rustler_crates do
-    [simhash: [
-      path: "native/simhash",
-      mode: rustc_mode(Mix.env)
-    ]]
+    [
+      simhash: [
+        path: "native/simhash",
+        mode: rustc_mode(Mix.env())
+      ]
+    ]
   end
 
   defp rustc_mode(:prod), do: :release

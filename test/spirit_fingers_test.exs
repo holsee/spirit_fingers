@@ -1,8 +1,4 @@
-defmodule SpiritFingersTest do
+defmodule SimHashTest do
   use ExUnit.Case
-  doctest SpiritFingers
-
-  test "greets the world" do
-    assert SpiritFingers.hello() == :world
-  end
+  doctest SimHash
 end

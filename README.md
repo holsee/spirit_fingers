@@ -1,6 +1,6 @@
 # SpiritFingers
 
-**TODO: Add description**
+SimHash NIFs written in Rust.
 
 ## Installation
 
@@ -13,6 +13,32 @@ def deps do
     {:spirit_fingers, "~> 0.1.0"}
   ]
 end
+```
+
+## Usage
+
+Generate SimHash:
+``` elixir
+SimHash.simhash("wow")
+{:ok, 17399923637769257768}
+```
+
+Hamming Distance between hashes:
+```
+SimHash.hamming_distance(17399923637769257768, 17399923637769257768)
+{:ok, 0.0}
+```
+
+Similarity between hashes:
+```
+SimHash.hash_similarity(17399923637769257768, 17399923637769257768)
+{:ok, 0.0}
+```
+
+Similarity between strings:
+```
+SimHash.similarity("Hocus pocus", "Hocus pocus pilatus pas")
+{:ok, 0.9375}
 ```
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)

@@ -22,3 +22,5 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 spirit_fingers-*.tar
 
+# Ignore rust artifacts
+*.so
