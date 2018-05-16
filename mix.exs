@@ -39,8 +39,7 @@ defmodule SpiritFingers.MixProject do
       name: "spirit_fingers",
       files: ["config", "lib", "native", "mix.exs", "README*", "LICENSE*"],
       links: %{
-        "GitHub" => "https://github.com/holsee/spirit_fingers",
-        "Docs"   => "http://hexdocs.pm/spirit_fingers/#{@version}/"
+        "GitHub" => "https://github.com/holsee/spirit_fingers"
       },
       maintainers: ["Steven Holdsworth (@holsee)"],
       licenses: ["MIT"]

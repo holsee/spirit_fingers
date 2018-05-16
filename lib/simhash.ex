@@ -9,8 +9,10 @@ defmodule SpiritFingers.SimHash do
   @type t :: pos_integer()
 
   @typedoc """
-  64 bit floating point represenation of similarity between two
-  `SimHash.t`. A value of `0.0` means no similarity, `1.0` means identical.
+  Similarity between two `SimHash.t`, represented as a value
+  between 0.0 and 1.0.
+  * `0.0` means no similarity,
+  * `1.0` means identical.
   """
   @type similarity :: float()
 
