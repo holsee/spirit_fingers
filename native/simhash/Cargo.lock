@@ -55,13 +55,13 @@ dependencies = [
  "lazy_static 0.2.11 (registry+https://github.com/rust-lang/crates.io-index)",
  "rustler 0.16.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "rustler_codegen 0.16.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "simhash 0.2.0 (git+https://github.com/bartolsthoorn/simhash-rs.git)",
+ "simhash 0.2.0 (git+https://github.com/holsee/simhash-rs.git)",
 ]
 
 [[package]]
 name = "simhash"
 version = "0.2.0"
-source = "git+https://github.com/bartolsthoorn/simhash-rs.git#7fc44d12901beb7c1a3de66e2a83b89cc298dded"
+source = "git+https://github.com/holsee/simhash-rs.git#7fc44d12901beb7c1a3de66e2a83b89cc298dded"
 dependencies = [
  "siphasher 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -120,7 +120,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum quote 0.3.15 (registry+https://github.com/rust-lang/crates.io-index)" = "7a6e920b65c65f10b2ae65c831a81a073a89edd28c7cce89475bff467ab4167a"
 "checksum rustler 0.16.0 (registry+https://github.com/rust-lang/crates.io-index)" = "346b8e397f17bc25a7a2b2a394fe016547817fe17a7c6849d878f1c6f1e369a2"
 "checksum rustler_codegen 0.16.0 (registry+https://github.com/rust-lang/crates.io-index)" = "0b94e2cb016a43a5e269a5cf76523d00278347f985cf7fbf6062ef026236144d"
-"checksum simhash 0.2.0 (git+https://github.com/bartolsthoorn/simhash-rs.git)" = "<none>"
+"checksum simhash 0.2.0 (git+https://github.com/holsee/simhash-rs.git)" = "<none>"
 "checksum siphasher 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "0df90a788073e8d0235a67e50441d47db7c8ad9debd91cbf43736a2a92d36537"
 "checksum syn 0.11.11 (registry+https://github.com/rust-lang/crates.io-index)" = "d3b891b9015c88c576343b9b3e41c2c11a51c219ef067b264bd9c8aa9b441dad"
 "checksum synom 0.11.3 (registry+https://github.com/rust-lang/crates.io-index)" = "a393066ed9010ebaed60b9eafa373d4b1baac186dd7e008555b0f702b51945b6"

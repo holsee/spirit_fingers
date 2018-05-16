@@ -14,4 +14,4 @@ rustler_codegen = "0.16.0"
 lazy_static = "0.2"
 
 [dependencies.simhash]
-git = "https://github.com/bartolsthoorn/simhash-rs.git"
+git = "https://github.com/holsee/simhash-rs.git"

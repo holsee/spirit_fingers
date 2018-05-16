@@ -1,16 +1,32 @@
 # SpiritFingers
 
-SimHash NIFs written in Rust.
+"Fast SimHash NIFs written in Rust 🐇💨 as Erlang/Elixir versions were too slow 🐢"
+
+* [Hex Package](https://hex.pm/packages/spirit_fingers).
+* [Documentation](https://hexdocs.pm/spirit_fingers).
+
+## Build
+
+Tested against Rust 1.26.0.
+
+```
+mix compile
+```
+
+## Test
+
+```
+mix test
+```
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `spirit_fingers` to your list of dependencies in `mix.exs`:
+Add `spirit_fingers` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:spirit_fingers, "~> 0.1.0"}
+    {:spirit_fingers, "~> 0.1.1"}
   ]
 end
 ```
@@ -23,25 +39,21 @@ SimHash.simhash("wow")
 {:ok, 17399923637769257768}
 ```
 
-Hamming Distance between hashes:
+Similarity between strings:
+``` elixir
+SimHash.similarity("Hocus pocus", "Hocus pocus pilatus pas")
+{:ok, 0.9375}
 ```
+
+Hamming Distance between hashes:
+``` elixir
 SimHash.hamming_distance(17399923637769257768, 17399923637769257768)
 {:ok, 0.0}
 ```
 
 Similarity between hashes:
-```
+``` elixir
 SimHash.hash_similarity(17399923637769257768, 17399923637769257768)
 {:ok, 0.0}
 ```
-
-Similarity between strings:
-```
-SimHash.similarity("Hocus pocus", "Hocus pocus pilatus pas")
-{:ok, 0.9375}
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/spirit_fingers](https://hexdocs.pm/spirit_fingers).
 

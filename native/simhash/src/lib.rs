@@ -15,7 +15,7 @@ mod atoms {
 }
 
 rustler_export_nifs! {
-    "Elixir.SimHash",
+    "Elixir.SpiritFingers.SimHash",
     [("simhash", 1, simhash),
      ("hamming_distance", 2, hamming_distance),
      ("hash_similarity", 2, hash_similarity),
@@ -30,13 +30,6 @@ fn simhash<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> 
 }
 
 fn hamming_distance<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
-    print!("wow");
-    let x: u64 = !0u64;
-    print!("value: {:?}", x);
-    let y: u64 = !0u64;
-    print!("value: {:?}", y);
-
-
     let hash0: u64 = try!(args[0].decode());
     let hash1: u64 = try!(args[1].decode());
     let ham_dist: f64 = simhash::hamming_distance(hash0, hash1) as f64;

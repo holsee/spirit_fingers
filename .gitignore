@@ -23,4 +23,4 @@ erl_crash.dump
 spirit_fingers-*.tar
 
 # Ignore rust artifacts
-*.so
+**/*.so

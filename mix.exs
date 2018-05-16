@@ -4,12 +4,18 @@ defmodule SpiritFingers.MixProject do
   def project do
     [
       app: :spirit_fingers,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      name: "SpiritFingers",
+      source_url: "https://github.com/holsee/spirit_fingers",
+      homepage_url: "https://hex.pm/packages/spirit_fingers",
+      docs: [main: "SpiritFingers", logo: "logo.png", extras: ["README.md"]],
       compilers: [:rustler] ++ Mix.compilers(),
-      rustler_crates: rustler_crates()
+      rustler_crates: rustler_crates(),
+      package: package(),
+      description: description()
     ]
   end
 
@@ -23,8 +29,26 @@ defmodule SpiritFingers.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:rustler, "~> 0.16.0"}
+      {:rustler, "~> 0.16.0"},
+      {:ex_doc, "~> 0.18.3", only: :dev, runtime: false}
     ]
+  end
+
+  defp package() do
+    [
+      name: "spirit_fingers",
+      files: ["config", "lib", "native", "mix.exs", "README*", "LICENSE*"],
+      links: %{
+        "GitHub" => "https://github.com/holsee/spirit_fingers",
+        "Docs"   => "http://hexdocs.pm/spirit_fingers/#{@version}/"
+      },
+      maintainers: ["Steven Holdsworth (@holsee)"],
+      licenses: ["MIT"]
+    ]
+  end
+
+  defp description() do
+    "Fast SimHash NIFs written in Rust 🐇💨 as Erlang/Elixir versions were too slow 🐢"
   end
 
   defp rustler_crates do
