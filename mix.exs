@@ -4,7 +4,7 @@ defmodule SpiritFingers.MixProject do
   def project do
     [
       app: :spirit_fingers,
-      version: "0.1.1",
+      version: "0.1.2",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -30,7 +30,8 @@ defmodule SpiritFingers.MixProject do
   defp deps do
     [
       {:rustler, "~> 0.16.0"},
-      {:ex_doc, "~> 0.18.3", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.18.3", only: :dev, runtime: false},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
     ]
   end
 

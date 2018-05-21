@@ -37,7 +37,7 @@ defmodule SpiritFingers.SimHash do
       iex> SpiritFingers.SimHash.simhash("Why the lucky stiff")
       {:ok, 1155526875459215761}
   """
-  @spec simhash(binary()) :: t()
+  @spec simhash(binary()) :: {:ok, t()}
   def simhash(_bin), do: :erlang.nif_error(:nif_not_loaded)
 
   @doc """
@@ -54,7 +54,7 @@ defmodule SpiritFingers.SimHash do
       iex> SpiritFingers.SimHash.hamming_distance(0b0100101, 0b1100110)
       {:ok, 3.0}
   """
-  @spec hamming_distance(t(), t()) :: distance()
+  @spec hamming_distance(t(), t()) :: {:ok, distance()}
   def hamming_distance(_hash0, _hash1), do: :erlang.nif_error(:nif_not_loaded)
 
   @doc """
@@ -72,7 +72,7 @@ defmodule SpiritFingers.SimHash do
       iex> SpiritFingers.SimHash.hash_similarity(0xFFFFFFFF, 0)
       {:ok, 0.5}
   """
-  @spec hash_similarity(t(), t()) :: similarity()
+  @spec hash_similarity(t(), t()) :: {:ok, similarity()}
   def hash_similarity(_hash0, _hash1), do: :erlang.nif_error(:nif_not_loaded)
 
   @doc """
@@ -89,6 +89,6 @@ defmodule SpiritFingers.SimHash do
       iex> SpiritFingers.SimHash.similarity("Peanut butter", "Strawberry cocktail")
       {:ok, 0.59375}
   """
-  @spec similarity(binary(), binary()) :: similarity()
+  @spec similarity(binary(), binary()) :: {:ok, similarity()}
   def similarity(_text0, _text1), do: :erlang.nif_error(:nif_not_loaded)
 end
