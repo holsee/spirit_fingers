@@ -7,9 +7,14 @@
 * [Hex Package](https://hex.pm/packages/spirit_fingers).
 * [Documentation](https://hexdocs.pm/spirit_fingers).
 
-## Build
+## Versions
 
-Tested against Rust 1.26.0.
+* Elixir 1.6
+* OTP 20
+* Rust 1.26.0
+* Rustler 0.16.0
+
+## Build
 
 ```
 mix compile
@@ -28,7 +33,7 @@ Add `spirit_fingers` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:spirit_fingers, "~> 0.1.1"}
+    {:spirit_fingers, "~> 0.1.3"}
   ]
 end
 ```
