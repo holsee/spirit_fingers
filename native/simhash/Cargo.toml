@@ -1,6 +1,6 @@
 [package]
 name = "simhash"
-version = "0.1.0"
+version = "0.2.0"
 authors = []
 
 [lib]
@@ -9,9 +9,9 @@ path = "src/lib.rs"
 crate-type = ["dylib"]
 
 [dependencies]
-rustler = "0.16.0"
-rustler_codegen = "0.16.0"
-lazy_static = "0.2"
+rustler = "0.19.0"
+rustler_codegen = "0.19.0"
+lazy_static = "1.2"
 
 [dependencies.simhash]
 git = "https://github.com/holsee/simhash-rs.git"
