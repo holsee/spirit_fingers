@@ -4,8 +4,8 @@ defmodule SpiritFingers.MixProject do
   def project do
     [
       app: :spirit_fingers,
-      version: "0.1.3",
-      elixir: "~> 1.6",
+      version: "0.1.2",
+      elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       name: "SpiritFingers",
@@ -29,8 +29,8 @@ defmodule SpiritFingers.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:rustler, "~> 0.16.0"},
-      {:ex_doc, "~> 0.18.3", only: :dev, runtime: false},
+      {:rustler, "~> 0.19.1"},
+      {:ex_doc, "~> 0.19.3", only: :dev, runtime: false},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
     ]
   end
