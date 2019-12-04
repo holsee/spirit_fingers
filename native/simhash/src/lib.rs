@@ -9,8 +9,6 @@ mod atoms {
     rustler_atoms! {
         atom ok;
         //atom error;
-        //atom __true__ = "true";
-        //atom __false__ = "false";
     }
 }
 
@@ -20,7 +18,7 @@ rustler_export_nifs! {
      ("hamming_distance", 2, hamming_distance),
      ("hash_similarity", 2, hash_similarity),
      ("similarity", 2, similarity)],
-    None
+    ErlNifTaskFlags::ERL_NIF_DIRTY_JOB_CPU_BOUND
 }
 
 fn simhash<'a>(env: NifEnv<'a>, args: &[NifTerm<'a>]) -> NifResult<NifTerm<'a>> {
