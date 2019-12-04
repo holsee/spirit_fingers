@@ -9,8 +9,6 @@
 
 ## Build
 
-Tested against Rust 1.26.0.
-
 ```
 mix compile
 ```
@@ -21,6 +19,13 @@ mix compile
 mix test
 ```
 
+## Versions
+
+* Elixir ~> 1.9
+* OTP 22
+* Rust 2018 ~> 1.39 `(4560ea788 2019-11-04)`
+* Rustler 1.21.0
+
 ## Installation
 
 Add `spirit_fingers` to your list of dependencies in `mix.exs`:
@@ -28,7 +33,7 @@ Add `spirit_fingers` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:spirit_fingers, "~> 0.1.1"}
+    {:spirit_fingers, "~> 0.2.0"}
   ]
 end
 ```
