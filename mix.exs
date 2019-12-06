@@ -30,7 +30,7 @@ defmodule SpiritFingers.MixProject do
   defp deps do
     [
       {:rustler, "~> 0.21.0"},
-      {:ex_doc, "~> 0.18.3", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.21.2", only: :dev, runtime: false},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
     ]
   end
