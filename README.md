@@ -33,7 +33,7 @@ Add `spirit_fingers` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:spirit_fingers, "~> 0.2.0"}
+    {:spirit_fingers, "~> 0.3.0"}
   ]
 end
 ```
