@@ -42,25 +42,25 @@ end
 
 Generate SimHash:
 ``` elixir
-SimHash.simhash("wow")
+SpiritFingers.SimHash.simhash("wow")
 {:ok, 17399923637769257768}
 ```
 
 Similarity between strings:
 ``` elixir
-SimHash.similarity("Hocus pocus", "Hocus pocus pilatus pas")
+SpiritFingers.SimHash.similarity("Hocus pocus", "Hocus pocus pilatus pas")
 {:ok, 0.9375}
 ```
 
 Hamming Distance between hashes:
 ``` elixir
-SimHash.hamming_distance(17399923637769257768, 17399923637769257768)
+SpiritFingers.SimHash.hamming_distance(17399923637769257768, 17399923637769257768)
 {:ok, 0.0}
 ```
 
 Similarity between hashes:
 ``` elixir
-SimHash.hash_similarity(17399923637769257768, 17399923637769257768)
+SpiritFingers.SimHash.hash_similarity(17399923637769257768, 17399923637769257768)
 {:ok, 0.0}
 ```
 
