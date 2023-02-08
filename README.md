@@ -2,6 +2,9 @@
 
 "Fast SimHash NIFs written in Rust 🐇💨 as Erlang/Elixir versions were too slow 🐢"
 
+For a full comparison versus native elixir solutions see: [Simhash Benchmarks](https://github.com/holsee/simhash_benchmarks)
+TL;DR Spirit Fingers is 400-900x faster, orders of magnitude more memory efficient and handles large binaries where others cannot. 
+
 ![logo](./logo.png)
 
 * [Hex Package](https://hex.pm/packages/spirit_fingers).
@@ -21,10 +24,10 @@ mix test
 
 ## Versions
 
-* Elixir ~> 1.9
-* OTP 22
-* Rust 2018 ~> 1.39 `(4560ea788 2019-11-04)`
-* Rustler 1.21.0
+* Elixir ~> 1.14
+* OTP 25
+* Rust 2021 ~> 1.67.0
+* Rustler 0.27.0
 
 ## Installation
 
@@ -33,7 +36,7 @@ Add `spirit_fingers` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:spirit_fingers, "~> 0.3.0"}
+    {:spirit_fingers, "~> 0.4.0"}
   ]
 end
 ```
@@ -42,7 +45,7 @@ end
 
 Generate SimHash:
 ``` elixir
-SpiritFingers.SimHash.simhash("wow")
+SpiritFingers.SimHash.similarity_hash("wow")
 {:ok, 17399923637769257768}
 ```
 
@@ -61,6 +64,6 @@ SpiritFingers.SimHash.hamming_distance(17399923637769257768, 1739992363776925776
 Similarity between hashes:
 ``` elixir
 SpiritFingers.SimHash.hash_similarity(17399923637769257768, 17399923637769257768)
-{:ok, 0.0}
+{:ok, 1.0}
 ```
 
