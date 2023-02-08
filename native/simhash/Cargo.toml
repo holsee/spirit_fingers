@@ -1,17 +1,16 @@
 [package]
 name = "simhash"
-version = "0.3.0"
+version = "0.4.0"
 authors = []
-edition = "2018"
+edition = "2021"
 
 [lib]
 name = "simhash"
 path = "src/lib.rs"
-crate-type = ["dylib"]
+crate-type = ["cdylib"]
 
 [dependencies]
-rustler = "0.21.0"
-lazy_static = "1.0"
+rustler = "0.27.0"
 
 [dependencies.simhash]
 git = "https://github.com/holsee/simhash-rs.git"

@@ -1,48 +1,44 @@
-#[macro_use] extern crate rustler;
+use rustler::{Atom, Error};
 
 extern crate simhash;
 
-use rustler::{Env, Term, Error, Encoder};
-
 mod atoms {
-    rustler_atoms! {
-        atom ok;
-        //atom error;
+    rustler::atoms! {
+        ok,
+        error
     }
 }
 
-rustler::rustler_export_nifs! {
-    "Elixir.SpiritFingers.SimHash",
-    [("simhash", 1, simhash),
-     ("hamming_distance", 2, hamming_distance),
-     ("hash_similarity", 2, hash_similarity),
-     ("similarity", 2, similarity)],
-    None
-}
-
-fn simhash<'a>(env: Env<'a>, args: &[Term<'a>]) -> Result<Term<'a>, Error> {
-    let text: &str = args[0].decode()?;
+#[rustler::nif]
+fn similarity_hash(text: &str) -> Result<(Atom, u64), Error> {
     let hash: u64 = simhash::simhash(text);
-    Ok((atoms::ok(), hash).encode(env))
+    Ok((atoms::ok(), hash))
 }
 
-fn hamming_distance<'a>(env: Env<'a>, args: &[Term<'a>]) -> Result<Term<'a>, Error> {
-    let hash0: u64 = args[0].decode()?;
-    let hash1: u64 = args[1].decode()?;
-    let ham_dist: f64 = simhash::hamming_distance(hash0, hash1) as f64;
-    Ok((atoms::ok(), ham_dist).encode(env))
+#[rustler::nif]
+fn hamming_distance(hash0: u64, hash1: u64) -> Result<(Atom, u32), Error> {
+    let ham_dist: u32 = simhash::hamming_distance(hash0, hash1);
+    Ok((atoms::ok(), ham_dist))
 }
 
-fn hash_similarity<'a>(env: Env<'a>, args: &[Term<'a>]) -> Result<Term<'a>, Error> {
-    let hash0: u64 = args[0].decode()?;
-    let hash1: u64 = args[1].decode()?;
-    let similarity: f64 = simhash::hash_similarity(hash0, hash1) as f64;
-    Ok((atoms::ok(), similarity).encode(env))
+#[rustler::nif]
+fn hash_similarity(hash0: u64, hash1: u64) -> Result<(Atom, f64), Error> {
+    let hash_similarity = simhash::hash_similarity(hash0, hash1);
+    Ok((atoms::ok(), hash_similarity))
 }
 
-fn similarity<'a>(env: Env<'a>, args: &[Term<'a>]) -> Result<Term<'a>, Error> {
-    let text0: &str = args[0].decode()?;
-    let text1: &str = args[1].decode()?;
-    let similarity: f64 = simhash::similarity(text0, text1) as f64;
-    Ok((atoms::ok(), similarity).encode(env))
+#[rustler::nif]
+fn similarity(text0: &str, text1: &str) -> Result<(Atom, f64), Error> {
+    let similarity: f64 = simhash::similarity(text0, text1);
+    Ok((atoms::ok(), similarity))
 }
+
+rustler::init!(
+    "Elixir.SpiritFingers.SimHash",
+    [
+        similarity_hash,
+        hamming_distance,
+        hash_similarity,
+        similarity
+    ]
+);
