@@ -5,9 +5,10 @@ defmodule SpiritFingers.MixProject do
     [
       app: :spirit_fingers,
       version: "0.4.1",
-      elixir: "~> 1.14",
+      elixir: "~> 1.19",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      aliases: aliases(),
       name: "SpiritFingers",
       source_url: "https://github.com/holsee/spirit_fingers",
       homepage_url: "https://hex.pm/packages/spirit_fingers",
@@ -27,9 +28,9 @@ defmodule SpiritFingers.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:rustler, "~> 0.27.0"},
-      {:ex_doc, "~> 0.29.1", only: :dev, runtime: false},
-      {:dialyxir, "~> 1.2", only: [:dev], runtime: false}
+      {:rustler, "~> 0.37.1"},
+      {:ex_doc, "~> 0.34", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.4", only: [:dev], runtime: false}
     ]
   end
 
@@ -47,5 +48,20 @@ defmodule SpiritFingers.MixProject do
 
   defp description() do
     "Fast SimHash NIFs written in Rust 🐇💨 as Erlang/Elixir versions were too slow 🐢"
+  end
+
+  defp aliases do
+    [
+      "test.all": ["test", "test.rust"]
+    ]
+  end
+
+  def cli do
+    [
+      preferred_envs: [
+        "test.all": :test,
+        "test.rust": :test
+      ]
+    ]
   end
 end

@@ -3,7 +3,11 @@ defmodule SpiritFingers.SimHash do
   SimHash Module which delegates to Rust NIFs which will
   perform the hashing, similarity and distance calculations.
   """
-  use Rustler, otp_app: :spirit_fingers, crate: "simhash"
+  use Rustler,
+    otp_app: :spirit_fingers,
+    crate: "spirit_fingers_simhash",
+    path: "native/simhash",
+    mode: :release
 
   @typedoc "unsigned 64 bit integer represenation of simhash"
   @type t :: pos_integer()
