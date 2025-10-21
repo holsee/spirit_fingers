@@ -9,6 +9,7 @@ defmodule SpiritFingers.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       aliases: aliases(),
+      dialyzer: dialyzer(),
       name: "SpiritFingers",
       source_url: "https://github.com/holsee/spirit_fingers",
       homepage_url: "https://hex.pm/packages/spirit_fingers",
@@ -30,7 +31,8 @@ defmodule SpiritFingers.MixProject do
     [
       {:rustler, "~> 0.37.1"},
       {:ex_doc, "~> 0.34", only: :dev, runtime: false},
-      {:dialyxir, "~> 1.4", only: [:dev], runtime: false}
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]
   end
 
@@ -48,6 +50,13 @@ defmodule SpiritFingers.MixProject do
 
   defp description() do
     "Fast SimHash NIFs written in Rust 🐇💨 as Erlang/Elixir versions were too slow 🐢"
+  end
+
+  defp dialyzer do
+    [
+      plt_add_apps: [:mix],
+      ignore_warnings: ".dialyzer_ignore.exs"
+    ]
   end
 
   defp aliases do

@@ -28,8 +28,8 @@
 //! Vendored from https://github.com/bartolsthoorn/simhash-rs into spirit_fingers project
 //! Enhanced with performance improvements and idiomatic Rust patterns by @holsee
 
-use std::hash::{Hash, Hasher};
 use siphasher::sip::SipHasher;
+use std::hash::{Hash, Hasher};
 
 /// Number of bits in the hash (u64)
 const HASH_BITS: usize = 64;
@@ -147,4 +147,3 @@ mod tests {
         assert!(similarity("Peanut butter", "Strawberry cocktail") < 0.6);
     }
 }
-
