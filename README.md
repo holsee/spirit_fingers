@@ -5,7 +5,7 @@
 For a full comparison versus native elixir solutions see: [Simhash Benchmarks](https://github.com/holsee/simhash_benchmarks)
 TL;DR Spirit Fingers is 400-900x faster, orders of magnitude more memory efficient and handles large binaries where others cannot. 
 
-![logo](./logo.png)
+![logo](logo.png)
 
 * [Hex Package](https://hex.pm/packages/spirit_fingers).
 * [Documentation](https://hexdocs.pm/spirit_fingers).
