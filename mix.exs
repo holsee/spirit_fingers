@@ -39,17 +39,18 @@ defmodule SpiritFingers.MixProject do
   defp package() do
     [
       name: "spirit_fingers",
-      files: [
-        "config",
-        "lib",
-        "native/simhash/src",
-        "native/simhash/Cargo.toml",
-        "native/simhash/Cargo.lock",
-        "mix.exs",
-        "README.md",
-        "LICENSE",
-        "logo.png"
-      ],
+      files: ~w(
+        config
+        lib
+        native/simhash/.cargo
+        native/simhash/src
+        native/simhash/Cargo.*
+        native/simhash/README.md
+        mix.exs
+        README.md
+        LICENSE
+        logo.png
+      ),
       links: %{
         "GitHub" => "https://github.com/holsee/spirit_fingers"
       },
