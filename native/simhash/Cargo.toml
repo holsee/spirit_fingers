@@ -1,16 +1,14 @@
 [package]
-name = "simhash"
+name = "spirit_fingers_simhash"
 version = "0.4.1"
 authors = []
 edition = "2021"
 
 [lib]
-name = "simhash"
+name = "spirit_fingers_simhash"
 path = "src/lib.rs"
 crate-type = ["cdylib"]
 
 [dependencies]
-rustler = "0.27.0"
-
-[dependencies.simhash]
-git = "https://github.com/holsee/simhash-rs.git"
+rustler = { version = "0.37", default-features = true }
+siphasher = "0.3"
