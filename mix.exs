@@ -4,7 +4,7 @@ defmodule SpiritFingers.MixProject do
   def project do
     [
       app: :spirit_fingers,
-      version: "0.5.0",
+      version: "0.5.1",
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -39,17 +39,18 @@ defmodule SpiritFingers.MixProject do
   defp package() do
     [
       name: "spirit_fingers",
-      files: [
-        "config",
-        "lib",
-        "native/simhash/src",
-        "native/simhash/Cargo.toml",
-        "native/simhash/Cargo.lock",
-        "mix.exs",
-        "README.md",
-        "LICENSE",
-        "logo.png"
-      ],
+      files: ~w(
+        config
+        lib
+        native/simhash/.cargo
+        native/simhash/src
+        native/simhash/Cargo.*
+        native/simhash/README.md
+        mix.exs
+        README.md
+        LICENSE
+        logo.png
+      ),
       links: %{
         "GitHub" => "https://github.com/holsee/spirit_fingers"
       },
