@@ -2,7 +2,9 @@
 
 "Fast SimHash NIFs written in Rust 🐇💨 as Erlang/Elixir versions were too slow 🐢"
 
-![logo](logo.png)
+<p align="center">
+  <img src="logo.png" alt="logo">
+</p>
 
 * [Hex Package](https://hex.pm/packages/spirit_fingers).
 * [Documentation](https://hexdocs.pm/spirit_fingers).
