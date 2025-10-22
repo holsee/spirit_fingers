@@ -3,7 +3,11 @@ defmodule SpiritFingers.SimHash do
   SimHash Module which delegates to Rust NIFs which will
   perform the hashing, similarity and distance calculations.
   """
-  use Rustler, otp_app: :spirit_fingers, crate: "simhash"
+  use Rustler,
+    otp_app: :spirit_fingers,
+    crate: "spirit_fingers_simhash",
+    path: "native/simhash",
+    mode: :release
 
   @typedoc "unsigned 64 bit integer represenation of simhash"
   @type t :: pos_integer()
@@ -28,17 +32,17 @@ defmodule SpiritFingers.SimHash do
 
   ## Examples
 
-      iex> SpiritFingers.SimHash.simhash("The cat sat on the mat")
+      iex> SpiritFingers.SimHash.similarity_hash("The cat sat on the mat")
       {:ok, 2595200813813010837}
 
-      iex> SpiritFingers.SimHash.simhash("The cat sat under the mat")
+      iex> SpiritFingers.SimHash.similarity_hash("The cat sat under the mat")
       {:ok, 2595269945604666783}
 
-      iex> SpiritFingers.SimHash.simhash("Why the lucky stiff")
+      iex> SpiritFingers.SimHash.similarity_hash("Why the lucky stiff")
       {:ok, 1155526875459215761}
   """
-  @spec simhash(binary()) :: {:ok, t()}
-  def simhash(_bin), do: :erlang.nif_error(:nif_not_loaded)
+  @spec similarity_hash(binary()) :: {:ok, t()}
+  def similarity_hash(_bin), do: :erlang.nif_error(:nif_not_loaded)
 
   @doc """
   Bitwise hamming distance of two `SimHash.t` hashes
@@ -46,13 +50,13 @@ defmodule SpiritFingers.SimHash do
   ## Examples
 
       iex> SpiritFingers.SimHash.hamming_distance(0, 0)
-      {:ok, 0.0}
+      {:ok, 0}
 
       iex> SpiritFingers.SimHash.hamming_distance(0b1111111, 0b0000000)
-      {:ok, 7.0}
+      {:ok, 7}
 
       iex> SpiritFingers.SimHash.hamming_distance(0b0100101, 0b1100110)
-      {:ok, 3.0}
+      {:ok, 3}
   """
   @spec hamming_distance(t(), t()) :: {:ok, distance()}
   def hamming_distance(_hash0, _hash1), do: :erlang.nif_error(:nif_not_loaded)

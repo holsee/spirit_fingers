@@ -4,16 +4,16 @@ defmodule SpiritFingers.MixProject do
   def project do
     [
       app: :spirit_fingers,
-      version: "0.3.0",
-      elixir: "~> 1.9",
+      version: "0.4.1",
+      elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      aliases: aliases(),
+      dialyzer: dialyzer(),
       name: "SpiritFingers",
       source_url: "https://github.com/holsee/spirit_fingers",
       homepage_url: "https://hex.pm/packages/spirit_fingers",
       docs: [main: "SpiritFingers", logo: "logo.png", extras: ["README.md"]],
-      compilers: [:rustler] ++ Mix.compilers(),
-      rustler_crates: rustler_crates(),
       package: package(),
       description: description()
     ]
@@ -29,9 +29,10 @@ defmodule SpiritFingers.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:rustler, "~> 0.21.0"},
-      {:ex_doc, "~> 0.21.2", only: :dev, runtime: false},
-      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
+      {:rustler, "~> 0.37.1"},
+      {:ex_doc, "~> 0.34", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]
   end
 
@@ -51,15 +52,25 @@ defmodule SpiritFingers.MixProject do
     "Fast SimHash NIFs written in Rust 🐇💨 as Erlang/Elixir versions were too slow 🐢"
   end
 
-  defp rustler_crates do
+  defp dialyzer do
     [
-      simhash: [
-        path: "native/simhash",
-        mode: rustc_mode(Mix.env())
-      ]
+      plt_add_apps: [:mix],
+      ignore_warnings: ".dialyzer_ignore.exs"
     ]
   end
 
-  defp rustc_mode(:prod), do: :release
-  defp rustc_mode(_), do: :debug
+  defp aliases do
+    [
+      "test.all": ["test", "test.rust"]
+    ]
+  end
+
+  def cli do
+    [
+      preferred_envs: [
+        "test.all": :test,
+        "test.rust": :test
+      ]
+    ]
+  end
 end
