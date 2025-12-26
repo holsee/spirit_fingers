@@ -26,3 +26,6 @@ spirit_fingers-*.tar
 
 # Ignore rust artifacts
 **/*.so
+
+# macOS
+.DS_Store
